@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>SAR Charts</title>
+	<link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+	<link rel="stylesheet" type="text/css" href="./css/bootswatch.min.css">
+	<link rel="stylesheet" type="text/css" href="./css/jquery-ui.theme.min.css">
+	<link rel="stylesheet" type="text/css" href="./css/slate.min.css">
+	<link rel="stylesheet" type="text/css" href="./css/main.css">
+	<link rel="stylesheet" type="text/css" href="./css/Chart.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+      <img class="mr-3" src="./images/tux.png" alt="" width="48" height="48">
+      <a class="navbar-brand mr-auto mr-lg-0" href="/">SAR Charts</a></span>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="navbar-collapse offcanvas-collapse">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" id="menu-start" href="/">Home</a>
+          </li>
+	  <li class="nav-item nav-graph d-none dropdown">
+            <a class="nav-link nav-menu dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="menu-resume">Resume <span class="caret"></span></a>
+	    <div class="dropdown-menu" aria-labelledby="menu-resume"></div>
+          </li>
+	  <li class="nav-item nav-graph d-none dropdown">
+            <a class="nav-link nav-menu dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="menu-cpu">CPU <span class="caret"></span></a>
+	    <div class="dropdown-menu" aria-labelledby="menu-cpu"></div>
+          </li>
+	  <li class="nav-item nav-graph d-none dropdown">
+            <a class="nav-link nav-menu dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="menu-disk">Disks <span class="caret"></span></a>
+	    <div class="dropdown-menu" aria-labelledby="menu-disk"></div>
+          </li>
+	  <li class="nav-item nav-graph d-none dropdown">
+            <a class="nav-link nav-menu dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="menu-mem">Memory <span class="caret"></span></a>
+	    <div class="dropdown-menu" aria-labelledby="menu-mem"></div>
+          </li>
+	  <li class="nav-item nav-graph d-none dropdown">
+            <a class="nav-link nav-menu dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="menu-net">Network <span class="caret"></span></a>
+	    <div class="dropdown-menu" aria-labelledby="menu-net"></div>
+          </li>
+	  <li class="nav-item nav-graph d-none dropdown">
+            <a class="nav-link nav-menu dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="menu-tasks">Processes <span class="caret"></span></a>
+	    <div class="dropdown-menu" aria-labelledby="menu-tasks"></div>
+          </li>
+	  <li class="nav-item nav-graph d-none dropdown">
+            <a class="nav-link nav-menu dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="menu-sys">System <span class="caret"></span></a>
+	    <div class="dropdown-menu" aria-labelledby="menu-sys"></div>
+          </li>
+	  <li class="nav-item nav-pdf d-none">
+            <a class="nav-link nav-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="menu-pdf">PDF export</span></a>
+          </li>
+	</ul>
+	<ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/Shadok/sarcharts">GitHub</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container">
+	  <div id="alert" class="d-none"></div>
+	  <div id="infos" class="my-3 p-3 bg-secondary text-white rounded shadow-sm row">You can zoom on the graphs by selecting an area of one of them, then unzoom with a double-click.</div>
+	  <div id="start" class="my-3 p-3 bg-primary rounded shadow-sm row">
+	    <div class="col-lg-6">
+		<h3>SAR file importation</h3>
+		<form>
+		    <div class="form-row">
+		      <div class="form-group col-sm-6">
+				<input type="file" class="form-control-file" name="sarfile-upload" accept="text/plain" id="sarfile-upload" accept=".txt">
+		      </div>
+		      <div class="form-group col-sm-6">
+				<button type="submit" class="btn btn-success btn-sm" id="submit-manual">Submit</button>
+				&nbsp; 
+				<img src="./images/loading.gif" alt="" class="d-none" id="sarfile-manual-loading">
+		      </div>
+		    </div>
+		    <div class="form-row">
+		       <div class="form-group col-sm-12">&bull; Sample files to download for testing:</div>
+		    </div>
+		    <div class="form-row">
+		      <div class="form-group col-sm-6">
+			<ul>
+				<li><a href="./examples/sa28_server_aix6.1.txt" title="AIX 6.1 sar example file">AIX 6.1</a></li>
+				<li><a href="./examples/sa05_server_rhel5.txt" title="RHEL 5 sar example file">RHEL 5</a></li>
+				<li><a href="./examples/sa31_server_rhel7.6.txt" title="RHEL 7.6 sar example file">RHEL 7.6</a></li>
+			</ul>
+		      </div>
+		      <div class="form-group col-sm-6">
+			<ul>
+				<li><a href="./examples/sa17_server_sol5.8.txt" title="Solaris 5.8 sar example file">Solaris 5.8</a></li>
+				<li><a href="./examples/sa17_server_sol5.10.txt" title="Solaris 5.10 sar example file">Solaris 5.10</a></li>
+				<li><a href="./examples/sa18_server_ubuntu18.04.txt" title="Ubuntu 18.04 sar example file">Ubuntu 18.04</a></li>
+			</ul>
+		      </div>
+		    </div>
+		</form>
+	    </div>
+	    <div class="col-lg-6">
+		<div class="card">
+		  <div class="card-body">
+			<div class="card-text">
+				<h5>How to export a SAR file</h5>
+				<span class="text-secondary">The location of the files varies according to the distribution: /var/log/sa, /var/log/sysstat, /var/adm/sa...</span><br>
+				For a single file:<br>
+				<span class="text-secondary"># sar -A -f &lt;path&gt;/saXX > /tmp/saXX_$(uname -n).txt</span><br>
+				For multiple files:<br>
+				<span class="text-secondary"># cd &lt;path&gt; && find . -name 'sa??' -type f -exec sh -c 'for f; do sar -A -f ${f} > /tmp/${f}_$(uname -n).txt; done' _ {} +</span>
+			</div>
+		  </div>
+		</div>
+	    </div>
+	  </div>
+	  <div id="graph-resume" class="my-3 p-3 bg-primary rounded shadow-sm row d-none"></div>
+	  <div id="graph-cpu" class="my-3 p-3 bg-primary rounded shadow-sm row d-none"></div>
+	  <div id="graph-disk" class="my-3 p-3 bg-primary rounded shadow-sm row d-none"></div>
+	  <div id="graph-net" class="my-3 p-3 bg-primary rounded shadow-sm row d-none"></div>
+	  <div id="graph-mem" class="my-3 p-3 bg-primary rounded shadow-sm row d-none"></div>
+	  <div id="graph-tasks" class="my-3 p-3 bg-primary rounded shadow-sm row d-none"></div>
+	  <div id="graph-sys" class="my-3 p-3 bg-primary rounded shadow-sm row d-none"></div>
+    </div>
+    <footer class="footer">
+      <div class="container text-center">
+        <span class="text-muted">SARCharts by Shadok - <a href="https://github.com/Shadok/sarcharts" title="GitHub">GitHub</a></span>
+      </div>
+    </footer>
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/jquery-ui.custom.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/main.min.js"></script>
+    <script src="./js/lang.min.js"></script>
+    <script src="./js/Chart.bundle.min.js"></script>
+    <script src="./js/chartjs-plugin-zoom.min.js"></script>
+    <script src="./js/hammer.min.js"></script>
+    <script src="./js/jspdf.min.js"></script>
+</body>
+</html>
