@@ -1,8 +1,9 @@
 # SAR Charts
-
 SAR Charts is a web interface to display the data, provided by SAR (System Activity Report, from sysstat package) on Linux and Unix servers, with charts.
 
 Freely inspired from https://sarchart.dotsuresh.com/
+
+As i am not a developer, there is much room for improvments in the code.
 
 ## Dependancies
 * [Bootstrap](https://getbootstrap.com/ "Bootstrap homepage")
