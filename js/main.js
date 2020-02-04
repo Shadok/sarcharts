@@ -420,7 +420,7 @@ $(document).ready(function() {
 		form_data.append( 'file', file_data );
 
 		$.ajax({
-			url: "/sarcharts/lib/uploadSA.php",
+			url: "./lib/uploadSA.php",
 			dataType: 'json',
 			cache: false,
 			contentType: false,
