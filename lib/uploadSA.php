@@ -40,6 +40,13 @@ else if ( 0 < $_FILES['file']['error'] )
 else
 {
 	$sar_file	= dirname (__FILE__) . '/../uploads/' . $_FILES['file']['name'];
+	
+	if( !is_dir( dirname (__FILE__) . '/../uploads' ) )
+	{
+		echo json_encode( array( 'success' => 0, 'error' => "\"uploads\" folder is missing in the webroot directory" ) );
+		exit( 1 );
+	}
+	
 	move_uploaded_file( $_FILES['file']['tmp_name'], $sar_file );
 	$sar		= file_get_contents( $sar_file );
 	unlink( $sar_file );
