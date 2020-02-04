@@ -5,6 +5,9 @@ Freely inspired from https://sarchart.dotsuresh.com/
 
 As i am not a developer, there is much room for improvments in the code.
 
+## Demo
+You can see and test a demo at https://sarcharts.tuxfamily.org, thanks to the [TuxFamily](https://www.tuxfamily.org/ "TuxFamily homepage") folks :)
+
 ## Dependancies
 * [Bootstrap](https://getbootstrap.com/ "Bootstrap homepage")
 * [Bootswatch](https://bootswatch.com/ "Bootswatch homepage") and its free [Slate](https://bootswatch.com/slate/ "Slate theme homepage") theme
