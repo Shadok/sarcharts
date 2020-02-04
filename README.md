@@ -32,7 +32,7 @@ Each SAR data block is named with it's first data column name and classed into a
 As we can have some duplicates in the columns names, the code do some renaming in known cases.
 config help structuring the data, and can restrict data when we are in a block with multiple lines with the same hour (e.g.: the CPU main block with a line for each core - and one for all of them - for each time entry).
 
-Then, the object is grabbed in json format by the main.min.js file which display the graphs, grouped by categories (as the exception of the "Resume" category, which i define in the javascript.
+Then, the object is grabbed in json format by the main.min.js file which display the graphs, grouped by categories (as the exception of the "Resume" category, which i define in the javascript).
 
 ## Configuration
 You need a webserver with PHP enabled (works with 5.5 and superior) to serve this web interface.
