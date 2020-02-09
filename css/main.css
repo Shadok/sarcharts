@@ -41,5 +41,10 @@ img.icon-pdf {
 
 .dropdown:hover .dropdown-menu {
 	display: block;
-	margin-top: 0; // remove the gap so it doesn't close
+	margin-top: 0;
+}
+
+ul {
+	margin-bottom: 0;
+	padding-bottom: 0;
 }
