@@ -153,7 +153,7 @@ lang.titles	= {
 			'kbdirty': "Amount of memory in kilobytes waiting to get written back to the disk",
 			'kbanonpg': "Amount of non-file backed pages in kilobytes mapped into userspace page tables",
 			'kbslab': "Amount of memory in kilobytes used by the kernel to cache data structures for its own use",
-			'kbskstack': "Amount of memory in kilobytes used for kernel stack space",
+			'kbkstack': "Amount of memory in kilobytes used for kernel stack space",
 			'kbpgtbl': "Amount of memory in kilobytes dedicated to the lowest level of page tables",
 			'kbvmused': "Amount of memory in kilobytes of used virtual address space",
 
