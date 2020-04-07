@@ -8,10 +8,10 @@ function parse_sar_info( $data )
 	$nbIfaceBlocks	= 0;
 
 	// Declare the output array
-	$out			= array();
+	$out		= array();
 
 	// Did we have a reboot trace in that file ?
-	$restart		= false;
+	$restart	= false;
 	$restart_time	= 0;
 	if( preg_match( "#([0-9]{2}:[0-9]{2}:[0-9]{2} ?[AP]?M?).*RESTART.*#i", $data, $matches ) !== false && isset( $matches[1] ))
 	{
@@ -24,7 +24,7 @@ function parse_sar_info( $data )
 	$data   = trim( $data );					// remove empty lines at start and end of file
 
 	// Special treatments and OS detection
-	$os		= "Linux";
+	$os	= "Linux";
 		// (Fucking) Solaris
 	if( stripos( $data, "SunOS" ) !== false )
 	{
@@ -55,7 +55,7 @@ function parse_sar_info( $data )
 	}
 
 	// Separate data groups using empty lines
-	$groups		= preg_split( "#\n\s*\n#Uis", $data );
+	$groups	= preg_split( "#\n\s*\n#Uis", $data );
 
 	// Dealing with server informations
 	$data	= preg_split( '/\s+/', $groups[0] );
@@ -77,6 +77,11 @@ function parse_sar_info( $data )
 				'kernel'	=> $data[1],
 				'hostname'	=> trim( $data[2], '()' )
 			);
+			// Getting CPU arch if specified
+			if( isset( $data[4] ) )
+			{
+				$server_infos['os']	.= ' ' . trim( $data[4], '_' );
+			}
 			break;
 		case "Solaris":
 			$server_infos	= array(
