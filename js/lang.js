@@ -74,6 +74,7 @@ lang.titles	= {
 			'wtps-all': "Total number of write requests per second issued to physical devices",
 			'bread/s-all': ["Total amount of data read from the devices in blocks per second.","Blocks are equivalent to sectors and therefore have a size of 512 bytes"],
 			'bwrtn/s-all': "Total amount of data written to devices in blocks per second",
+			'bdscd/s-all': "Total amount of data discarded for devices in blocks per second",
 
 			'tps': ["Total number of transfers per second that were issued to physical devices.","A transfer is an I/O request to a physical device. Multiple logical requests can be combined into a single I/O request to the device.","A transfer is of indeterminate size"],
 			'rd_sec/s': "The number of sectors (kilobytes, megabytes) read from the device per second",
@@ -166,6 +167,8 @@ lang.titles	= {
 			'kbhugfree': "Amount of hugepages memory in kilobytes that is not yet allocated",
 			'kbhugused': "Amount of hugepages memory in kilobytes that has been allocated",
 			'%hugused': "Percentage of total hugepages memory that has been allocated",
+			'kbhugrsvd': "Amount of reserved hugepages memory in kilobytes",
+			'kbhugsurp': "Amount of surplus hugepages memory in kilobytes",
 		},
 		'Solaris':
 		{
