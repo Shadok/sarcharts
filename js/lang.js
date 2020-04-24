@@ -72,6 +72,7 @@ lang.titles	= {
 			'tps-all': ["Total number of transfers per second that were issued to physical devices.","A transfer is an I/O request to a physical device. Multiple logical requests can be combined into a single I/O request to the device.","A transfer is of indeterminate size"],
 			'rtps-all': "Total number of read requests per second issued to physical devices",
 			'wtps-all': "Total number of write requests per second issued to physical devices",
+			'dtps-all': "Total number of discard requests per second issued to physical devices",
 			'bread/s-all': ["Total amount of data read from the devices in blocks per second.","Blocks are equivalent to sectors and therefore have a size of 512 bytes"],
 			'bwrtn/s-all': "Total amount of data written to devices in blocks per second",
 			'bdscd/s-all': "Total amount of data discarded for devices in blocks per second",
