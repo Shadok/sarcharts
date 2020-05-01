@@ -98,11 +98,11 @@ function parse_sar_info( $data )
 	{
 		$server_infos['date']	= $date[1] . '-' . $date[2] . '-' . $date[3];
 	}
-	elseif( preg_match( '/(0[1-9]|1[0-2])[\/\-](0[1-9]|[1-2][0-9]|3[0-1])[\/\-]([0-9]{4})/', $groups[0], $date ) ) // MM-DD-YYYY or MM/DD/YYYY format
+	else if( preg_match( '/(0[1-9]|1[0-2])[\/\-](0[1-9]|[1-2][0-9]|3[0-1])[\/\-]([0-9]{4})/', $groups[0], $date ) ) // MM-DD-YYYY or MM/DD/YYYY format
 	{
 		$server_infos['date']	= $date[3] . '-' . $date[1] . '-' . $date[2];
 	}
-	elseif( preg_match( '/(0[1-9]|1[0-2])[\/\-](0[1-9]|[1-2][0-9]|3[0-1])[\/\-]([0-9]{2})/', $groups[0], $date ) ) // MM-DD-YY or MM/DD/YY format
+	else if( preg_match( '/(0[1-9]|1[0-2])[\/\-](0[1-9]|[1-2][0-9]|3[0-1])[\/\-]([0-9]{2})/', $groups[0], $date ) ) // MM-DD-YY or MM/DD/YY format
 	{
 		$server_infos['date']	= '20' . $date[3] . '-' . $date[1] . '-' . $date[2];
 	}
