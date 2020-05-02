@@ -2,6 +2,7 @@ var charts	= [];
 var infos	= {};
 var lineColors	= ['#c0392b', '#e74c3c', '#9b59b6', '#8e44ad', '#2980b9', '#3498db', '#1abc9c', '#16a085', '#27ae60', '#2ecc71', '#f1c40f', '#f39c12', '#e67e22', '#d35400', '#bdc3c7', '#95a5a6', '#7f8c8d', '#34495e', '#2c3e50'];
 var menuActive	= 'start';
+var timeFormat	= 'HH:mm';
 
 // Add alert on top of the page (warning, danger, success, info)
 function addAlert( type, message )
@@ -22,9 +23,9 @@ function addMenuEntry( title, menu, id )
 function displayInformations()
 {
 	// Did the server restarted during the day ?
-	if( infos.restart )
+	if( infos.restart > 0 )
 	{
-		infos.restart	= "Please note, the server has restarted at " + infos.restart_time + " !";
+			infos.restart	= "Please note, the server restarted " + infos.restart +  " time(s) : " + infos.restart_list + " !";
 	}
 	else
 	{
@@ -216,7 +217,7 @@ function getGraphData( os, sar, limitColumns, destination )
 }
 
 // Graph some data
-function graphData( column, data, title, destination, multiple)
+function graphData( column, data, title, destination, multiple )
 {
 	var multiple	= multiple || 0;
 	var cid		= destination + "-" + column.replace( /[&\/\\#,+()$~%.'":*?<>{}]/g, '_' );
@@ -255,7 +256,6 @@ function graphData( column, data, title, destination, multiple)
 		if( ratio < 0.8 ) ratio = 0.8;
 	}
 
-	var timeFormat	= 'HH:mm';
 	var dragOptions = {
 		animationDuration: 1000,
 		 borderColor: 'rgba(255,255,255,0.3)',
@@ -302,12 +302,13 @@ function graphData( column, data, title, destination, multiple)
 						displayFormats: {
 							second: timeFormat,
 							minute: timeFormat,
-							hour: timeFormat
+							hour: timeFormat,
+							week: timeFormat
 						}
 					},
 					scaleLabel: {
 						display: true,
-						labelString: 'Heure'
+						labelString: 'Timestamp'
 					},
 					ticks: {
 						autoSkip: true,
@@ -363,7 +364,13 @@ function initGraph( data )
 	infos		= data.infos;
 	var os		= infos.server.family;
 	displayInformations();
-	
+
+	// Time format differ if we graph a multiple days sar file
+	if( infos.nb_days > 1 )
+	{
+		timeFormat	= 'YYYY-MM-DD HH:mm';
+	}
+
 	// Put the more important data on the resume section
 	graphResume( data.data, os );
 

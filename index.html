@@ -104,6 +104,9 @@
 			</ul>
 		      </div>
 		    </div>
+		    <div class="row mt-3">
+		      <div class="col-sm-12">SAR Charts supports single and multiple days files !<br>Too much data in a single file can make graphs unreadable without zoom.</div>
+		    </div>
 		</form>
 	    </div>
 	    <div class="col-lg-6">
@@ -114,8 +117,11 @@
 				<span class="text-secondary">The location of the files varies according to the distribution: /var/log/sa, /var/log/sysstat, /var/adm/sa...</span><br>
 				For a single file:<br>
 				<span class="text-secondary"># sar -A -f &lt;path&gt;/saXX > /tmp/saXX_$(uname -n).txt</span><br>
-				For multiple files:<br>
-				<span class="text-secondary"># cd &lt;path&gt; && find . -name 'sa??' -type f -exec sh -c 'for f; do sar -A -f ${f} > /tmp/${f}_$(uname -n).txt; done' _ {} +</span>
+				For multiple files:
+				<ul>
+					<li>One file per day : <span class="text-secondary"># cd &lt;path&gt; && find . -name 'sa??' -type f -exec sh -c 'for f; do sar -A -f ${f} > /tmp/${f}_$(uname -n).txt; done' _ {} +</span></li>
+					<li>One file combined : <span class="text-secondary"># cd &lt;path&gt; && ls sa?? | xargs -i sar -A -f {} > /tmp/sar_$(uname -n).txt</span></li>
+				</ul>
 			</div>
 		  </div>
 		</div>
@@ -137,7 +143,7 @@
     <script src="./js/jquery.min.js"></script>
     <script src="./js/jquery-ui.custom.min.js"></script>
     <script src="./js/bootstrap.min.js"></script>
-    <script src="./js/main.min.js"></script>
+    <script src="./js/main.js"></script>
     <script src="./js/lang.min.js"></script>
     <script src="./js/Chart.bundle.min.js"></script>
     <script src="./js/chartjs-plugin-zoom.min.js"></script>
