@@ -249,6 +249,11 @@ lang.titles	= {
 			'rawsck': "Number of RAW sockets currently in use",
 			'ip-frag': "Number of IP fragments currently in use",
 			'tcp-tw': "Number of TCP sockets in TIME_WAIT state",
+
+			'tcp6sck': "Number of TCPv6 sockets currently in use",
+			'udp6sck': "Number of UDPv6 sockets currently in use",
+			'raw6sck': "Number of RAWv6 sockets currently in use",
+			'ip6-frag': "Number of IPv6 fragments currently in use",
 		},
 		'Solaris':
 		{

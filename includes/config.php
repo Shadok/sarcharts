@@ -138,6 +138,10 @@ $cfg	= array(
 					'category'	=> 'NET',
 					'multiple'	=> 0,
 				),
+				'tcp6sck'	=> array(
+					'category'	=> 'NET',
+					'multiple'	=> 0,
+				),
 				'runq-sz'	=> array(
 					'category'	=> 'TASKS',
 					'multiple'	=> 0,
