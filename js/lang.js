@@ -84,6 +84,7 @@ lang.titles	= {
 			'avgqu-sz': "The average queue length of the requests that were issued to the device",
 			'rkB/s': "Number of kilobytes read from the device per second",
 			'wkB/s': "Number of kilobytes written to the device per second",
+			'dkB/s': "Number of kilobytes discarded for the device per second",
 			'areq-sz': ["The average size (in kilobytes) of the I/O requests that were issued to the device.","Note: In previous versions, this field was known as avgrq-sz and was expressed in sectors"],
 			'aqu-sz': ["The average queue length of the requests that were issued to the device.","Note: In previous versions, this field was known as avgqu-sz"],
 			'await': ["The average time (in milliseconds) for I/O requests issued to the device to be served.","This includes the time spent by the requests in queue and the time spent servicing them. "],
