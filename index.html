@@ -116,11 +116,11 @@
 				<h5>How to export a SAR file</h5>
 				<span class="text-secondary">The location of the files varies according to the distribution: /var/log/sa, /var/log/sysstat, /var/adm/sa...</span><br>
 				For a single file:<br>
-				<span class="text-secondary"># sar -A -f &lt;path&gt;/saXX > /tmp/saXX_$(uname -n).txt</span><br>
+				<span class="text-secondary"># sar -A -p -f &lt;path&gt;/saXX > /tmp/saXX_$(uname -n).txt</span><br>
 				For multiple files:
 				<ul>
-					<li>One file per day : <span class="text-secondary"># cd &lt;path&gt; && find . -name 'sa??' -type f -exec sh -c 'for f; do sar -A -f ${f} > /tmp/${f}_$(uname -n).txt; done' _ {} +</span></li>
-					<li>One file combined : <span class="text-secondary"># cd &lt;path&gt; && ls sa?? | xargs -i sar -A -f {} > /tmp/sar_$(uname -n).txt</span></li>
+					<li>One file per day : <span class="text-secondary"># cd &lt;path&gt; && find . -name 'sa??' -type f -exec sh -c 'for f; do sar -A -p -f ${f} > /tmp/${f}_$(uname -n).txt; done' _ {} +</span></li>
+					<li>One file combined : <span class="text-secondary"># cd &lt;path&gt; && ls sa?? | xargs -i sar -A -p -f {} > /tmp/sar_$(uname -n).txt</span></li>
 				</ul>
 			</div>
 		  </div>
