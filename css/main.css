@@ -48,3 +48,10 @@ ul {
 	margin-bottom: 0;
 	padding-bottom: 0;
 }
+
+/* when there is too much menu entries */
+.dropdown-menu {
+        max-height: 750px;
+        overflow-y: auto;
+        overflow-x: hidden;
+}
