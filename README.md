@@ -9,7 +9,7 @@ As i am not a developer, there is much room for improvments in the code.
 ## Demo
 You can see and test a demo at https://sarcharts.tuxfamily.org, thanks to the [TuxFamily](https://www.tuxfamily.org/ "TuxFamily homepage") folks :)
 
-## Dependancies
+## Dependencies
 * [Bootstrap](https://getbootstrap.com/ "Bootstrap homepage")
 * [Bootswatch](https://bootswatch.com/ "Bootswatch homepage") and its free [Slate](https://bootswatch.com/slate/ "Slate theme homepage") theme
 * [Chart.js](https://www.chartjs.org/ "Chart.js homepage") and its plugin [chartjs-plugin-zoom](https://github.com/chartjs/chartjs-plugin-zoom "chartjs-plugin-zoom repository")
@@ -22,7 +22,8 @@ You can see and test a demo at https://sarcharts.tuxfamily.org, thanks to the [T
 The only broken thing you will see, if you use a sar file from a more recent sysstat package than i have tested and implemented, is some graphs with "undefined" as a title or data not graphed.
 I have tested SAR Charts with these OS and sysstat versions :
 * AIX 6.1
-* RHEL 3 to 7.6
+* RHEL 3.1 to 7.9
+* SLES 11
 * Solaris 5.8 to 5.11
 * Ubuntu 12.04 to 20.04
 * Sysstat 5.0.5 to 12.2.0
