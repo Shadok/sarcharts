@@ -22,10 +22,10 @@ You can see and test a demo at https://sarcharts.tuxfamily.org, thanks to the [T
 The only broken thing you will see, if you use a sar file from a more recent sysstat package than i have tested and implemented, is some graphs with "undefined" as a title or data not graphed.
 I have tested SAR Charts with these OS and sysstat versions :
 * AIX 6.1
-* RHEL 3 to 7.6
+* RHEL 3 to 10
 * Solaris 5.8 to 5.11
-* Ubuntu 12.04 to 20.04
-* Sysstat 5.0.5 to 12.2.0
+* Ubuntu 12.04 to 26.04
+* Sysstat 5.0.5 to 12.7.7
 
 ## How it works ?
 SAR exported text file parsing is done by parseSA.php and config.php.

@@ -34,6 +34,7 @@ lang.titles	= {
 			'squeezd/s': "The number of times the softirq handler function terminated per second because its budget was consumed or the time limit was reached, but more work could have been done",
 			'rx_rps/s': "The number of times the CPU has been woken up per second to process packets via an inter-processor interrupt",
 			'flw_lim/s': ["The number of times the flow limit has been reached per second.","Flow limiting is an optional RPS feature that can be used to limit the number of packets queued to the backlog for each flow to a certain amount.","This can help ensure that smaller flows are processed even though much larger flows are pushing packets in"],
+			'blg_len': "The length of the network backlog",
 		},
 		'Solaris':
 		{
@@ -137,6 +138,8 @@ lang.titles	= {
 			'pgscank/s': "Number of pages scanned by the kswapd daemon per second",
 			'pgscand/s': "Number of pages scanned directly per second",
 			'pgsteal/s': "Number of pages the system has reclaimed from cache (pagecache and swapcache) per second to satisfy its memory demands.",
+			'pgprom/s': "Number of pages promoted (i.e. migrated from slow to fast memory types) by the system per second.",
+			'pgdem/s': "Number of pages demoted (i.e. migrated from fast to slow memory types) by the system per second.",
 			'%vmeff': ["Calculated as pgsteal / pgscan, this is a metric of the efficiency of page reclaim.","If it is near 100% then almost every page coming off the tail of the inactive list is being reaped.","If it gets too low (e.g. less than 30%) then the virtual memory is having some difficulty.","This field is displayed as zero if no pages have been scanned during the interval of time"],
 
 			'frmpg/s': ["Number of memory pages freed by the system per second.","A negative value represents a number of pages allocated by the system. Note that a page has a size of 4 kB or 8 kB according to the machine architecture."],
